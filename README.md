@@ -41,7 +41,8 @@ Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/de
 
 ## Deploy
 
-You need set `NITRO_PRESET=vercel-edge`, see [Nuxt on Vercel](https://vercel.com/docs/frameworks/nuxt#edge-functions).
+
+See [Nuxt on Vercel](https://vercel.com/docs/frameworks/nuxt).
 
 ## Ref
 
