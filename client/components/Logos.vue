@@ -11,7 +11,7 @@
     <NuxtLogo class="logo" />
   </div>
   <h2>
-    <a target="_blank" href="https://element-plus.org/">Element Plus</a>
+    <a target="_blank" href="https://element-plus.org/">Express.js</a>
     With
     <a target="_blank" href="https://v3.nuxtjs.org/">NuxtJS</a>
   </h2>
