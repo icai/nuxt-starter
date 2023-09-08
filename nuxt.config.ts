@@ -1,5 +1,9 @@
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+import path from 'path'
 export default defineNuxtConfig({
+  rootDir: __dirname,
+  srcDir: "client",
+  serverDir: "server",
   app: {
     // head
     head: {
@@ -15,7 +19,14 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     }
   },
-
+  alias: {
+    '~': path.resolve(__dirname, 'client'),
+    '@': path.resolve(__dirname, 'client'),
+    '~~': path.resolve(__dirname, 'client'),
+    '@@': path.resolve(__dirname, 'client'),
+    'assets': path.resolve(__dirname, 'client/assets'),
+    'public': path.resolve(__dirname, 'client/public')
+  },
   // css
   css: ['~/assets/scss/index.scss'],
 
@@ -59,9 +70,13 @@ export default defineNuxtConfig({
       },
     },
   },
+
   elementPlus: {
     icon: 'ElIcon',
     importStyle: 'scss',
     themes: ['dark'],
   },
+  serverHandlers: [
+    { route: '/api/**', handler: './server/serverhandler.ts' }
+  ],  
 })

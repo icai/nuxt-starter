@@ -1,12 +1,11 @@
-# Element Plus with Nuxt 3 Minimal Starter
+# Express with Nuxt 3 Minimal Starter
 
 <pre align="center">
 🏗 Working in Progress
 </pre>
 
-SSR Preview: <https://element-plus-nuxt.vercel.app/>
+SSR Preview: <nuxt-starter-icai.vercel.app/>
 
-SSG Preview: <https://nuxt-starter.element-plus.org/>
 
 We recommend to look at the [Nuxt 3 Docs](https://nuxt.com/) and [Element Plus Docs](https://element-plus.org/).
 

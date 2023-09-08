@@ -1,6 +1,7 @@
 <template>
   <div class="page-index">
     <Logos />
+    sssss
     <Examples />
   </div>
 </template>
