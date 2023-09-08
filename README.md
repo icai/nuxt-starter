@@ -4,7 +4,7 @@
 🏗 Working in Progress
 </pre>
 
-SSR Preview: <nuxt-starter-icai.vercel.app/>
+SSR Preview: <https://nuxt-starter-icai.vercel.app/>
 
 
 We recommend to look at the [Nuxt 3 Docs](https://nuxt.com/) and [Element Plus Docs](https://element-plus.org/).
