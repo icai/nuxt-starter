@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "/*": ["./*"],
+      "@/*": ["./client/*"],
+      "~/*": ["./client/*"],
+      "@core/*": ["./server/core/*"],
+      "@models/*": ["./server/models/*"],
+      "@controllers/*": ["./server/controllers/*"],
+      "@routes/*": ["./server/routes/*"],
+      "@middleware/*": ["./server/middleware/*"]
+    }
+  },
+  "allowJs": true,
+  "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue"],
+  "exclude": ["node_modules"]
+}

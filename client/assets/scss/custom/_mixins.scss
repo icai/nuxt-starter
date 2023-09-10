@@ -1,0 +1,46 @@
+//
+// Custom mixins
+//
+
+@mixin hover() {
+  &:hover {
+    @content;
+  }
+}
+
+@mixin hover-focus() {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin plain-hover-focus() {
+  &,
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin hover-focus-active() {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}
+
+@import '../bootstrap/scss/functions';
+@import '../bootstrap/scss/mixins';
+
+@import './mixins/alert';
+@import './mixins/badge';
+@import './mixins/background-variant';
+@import './mixins/buttons';
+@import './mixins/custom-forms';
+@import './mixins/forms';
+@import './mixins/icon';
+@import './mixins/modals';
+@import './mixins/popover';
+@import './mixins/tongue';

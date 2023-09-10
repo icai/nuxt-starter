@@ -1,0 +1,17 @@
+.el-checkbox {
+  .el-checkbox__input .el-checkbox__inner {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    border-radius: 3px;
+
+    &::before {
+      top: 6px;
+      border-color: $custom-control-indicator-checked-border-color;
+    }
+    &::after {
+      height: 9px;
+      left: 5px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@mixin modal-variant($background) {
+  .modal-title {
+    color: color-contrast($background);
+  }
+
+  .modal-header,
+  .modal-footer {
+    border-color: rgba(color-contrast($background), 0.075);
+  }
+
+  .modal-content {
+    background-color: $background;
+    color: color-contrast($background);
+
+    .heading {
+      color: color-contrast($background);
+    }
+  }
+
+  .close {
+    & > span:not(.sr-only) {
+      color: $white;
+    }
+  }
+}

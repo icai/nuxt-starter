@@ -1,22 +1,26 @@
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 import path from 'path'
+import locales from './client/locales/locales'
 export default defineNuxtConfig({
   rootDir: __dirname,
   srcDir: "client",
   serverDir: "server",
+  components: {
+    dirs: [
+      '~/components/aui',
+      '~/components/global'
+    ]
+  },
   app: {
-    // head
     head: {
-      title: 'Element Plus + Nuxt 3',
-      meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'ElementPlus + Nuxt3',
-        },
-      ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      titleTemplate: '%s - NeonCMS',
+      meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: 'NeonCMS' }],
+      link: [
+        { rel: 'icon', type: 'image/png', href: 'favicon.png' },
+        // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' },
+        // { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' },
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' },
+      ]
     }
   },
   alias: {
@@ -28,7 +32,7 @@ export default defineNuxtConfig({
     'public': path.resolve(__dirname, 'client/public')
   },
   // css
-  css: ['~/assets/scss/index.scss'],
+  css: ['~/assets/scss/framework.scss'],
 
   typescript: {
     strict: true,
@@ -38,12 +42,23 @@ export default defineNuxtConfig({
   // build modules
   modules: [
     '@vueuse/nuxt',
-    '@unocss/nuxt',
     '@pinia/nuxt',
-    '@element-plus/nuxt',
-    '@nuxtjs/color-mode'
+    // '@element-plus/nuxt',
+    '@nuxtjs/color-mode',
+    // i18n
+    '@nuxtjs/i18n',
   ],
-
+  plugins: [
+    '~/plugins/ui.ts',
+  ],
+  i18n: {
+    locales:  locales,
+    defaultLocale: 'en',
+    detectBrowserLanguage: {
+      useCookie: true
+    },
+    vueI18n: './client/locales/index.ts',
+  },
   // vueuse
   vueuse: {
     ssrHandlers: true,
@@ -53,24 +68,15 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
-
-  unocss: {
-    uno: true,
-    attributify: true,
-    icons: {
-      scale: 1.2,
-    },
-  },
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "@/assets/scss/element/index.scss" as element;`,
+          additionalData: `@import "~/assets/scss/variable.scss";`
         },
       },
     },
   },
-
   elementPlus: {
     icon: 'ElIcon',
     importStyle: 'scss',
@@ -78,5 +84,5 @@ export default defineNuxtConfig({
   },
   serverHandlers: [
     { route: '/api/**', handler: './server/serverhandler.ts' }
-  ],  
+  ],
 })

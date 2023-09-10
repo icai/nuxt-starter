@@ -1,0 +1,24 @@
+.a-drawer__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.a-drawer__body {
+  flex: 1;
+  padding: 0 24px;
+}
+
+.a-drawer__footer {
+  display: flex;
+  padding: 12px 24px;
+  text-align: right;
+}
+
+.a-drawer__footer button {
+  flex: 1;
+}
+
+.a-drawer__footer .el-button + .a-drawer__footer .el-button {
+  margin-left: 10px;
+}
