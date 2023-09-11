@@ -17,8 +17,8 @@
         </div>
         <div class="col-6 collapse-close">
           <button type="button" class="navbar-toggler" @click="closeMenu">
-            <span />
-            <span />
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
