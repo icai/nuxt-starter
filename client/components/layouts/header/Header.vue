@@ -110,10 +110,8 @@
   </n-nav>
 </template>
 <script>
-import { ref, computed } from 'vue'
 import brandimgGreen from '@/assets/images/img/brand/green1.png'
 import brandimgwhite from '@/assets/images/img/brand/white1.png'
-
 export default {
   name: 'Header',
   props: {

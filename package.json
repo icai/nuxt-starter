@@ -9,6 +9,7 @@
   },
   "author": "Terry Cai",
   "license": "MIT",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "nuxi dev",
