@@ -21,8 +21,6 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue'
-
 export default {
   name: 'NNav',
   emits: ['update:modelValue'],

@@ -13,7 +13,6 @@
 
 <script>
 import { useStore } from '~/stores/main'
-import { defineComponent, computed } from 'vue'
 import flagcn from '~/assets/images/img/icons/flags/cn.svg'
 import flagen from '~/assets/images/img/icons/flags/us.svg'
 import flages from '~/assets/images/img/icons/flags/es.svg'
@@ -22,7 +21,7 @@ import flagru from '~/assets/images/img/icons/flags/ru.svg'
 import flagus from '~/assets/images/img/icons/flags/us.svg'
 import flagde from '~/assets/images/img/icons/flags/de.svg'
 
-export default defineComponent({
+export default {
   name: 'LangDropdown',
   props: {
     tag: {
@@ -91,7 +90,7 @@ export default defineComponent({
       currentLocale
     }
   }
-})
+}
 </script>
 <style lang="scss">
 .lang-dropdown {
