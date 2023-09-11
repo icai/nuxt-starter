@@ -133,7 +133,6 @@ export default {
     const transparent = ref(props.transparent)
 
     const closeMenu = () => {
-      console.log('closeMenu', showMenu.value)
       showMenu.value = false
     }
 
