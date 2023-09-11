@@ -14,7 +14,6 @@
 <script>
 import { useStore } from '~/stores/main'
 import { defineComponent, computed } from 'vue'
-import { useI18n } from 'vue-i18n'
 import flagcn from '~/assets/images/img/icons/flags/cn.svg'
 import flagen from '~/assets/images/img/icons/flags/us.svg'
 import flages from '~/assets/images/img/icons/flags/es.svg'

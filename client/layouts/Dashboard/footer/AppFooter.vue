@@ -5,18 +5,16 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'AppFooter',
   data() {
     return {
-      appYear: new Date().getFullYear(),
+      appYear: new Date().getFullYear()
     }
-  },
+  }
 }
 </script>
-
 <style lang="scss" scoped>
 .app-layout-footer {
   padding-top: 8px;

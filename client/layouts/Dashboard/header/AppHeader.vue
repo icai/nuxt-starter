@@ -45,6 +45,7 @@ import defaultAvatarImg from '@/assets/images/img/avatar.png'
 import AppDrawer from './AppDrawer'
 import LangDropdown from '~/components/global/LangDropdown.vue'
 import { Setting } from '@element-plus/icons-vue'
+const store  = useStore()
 
 export default {
   name: 'AppHeader',
@@ -92,7 +93,7 @@ export default {
       }
     },
     async logout() {
-      // await this.$store.logout()
+      await store.logout()
     }
   }
 }

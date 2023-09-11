@@ -6,9 +6,12 @@
         <h1>{{ ui.appName }}</h1>
       </nuxt-link>
     </div>
-    <el-menu :default-active="currentNav" :unique-opened="true" :collapse-transition="false" :collapse="ui.isAsideCollapsed">
-      <sub-menu v-for="block in authorizedNav" :key="block.menu_id" :block="block" :max-level="ui.submenuMaxLevel" />
-    </el-menu>
+    <client-only>
+      <el-menu :default-active="currentNav" :unique-opened="true" :collapse-transition="false" :collapse="ui.isAsideCollapsed">
+        <sub-menu v-for="block in authorizedNav" :key="block.menu_id" :block="block" :max-level="ui.submenuMaxLevel" />
+      </el-menu>
+    </client-only>
+
   </div>
 </template>
 
@@ -77,7 +80,8 @@ export default {
     a {
       color: $--color-primary;
       transition: color 0.5s;
-      opacity: 0;
+      // @todo
+      // opacity: 0;
 
       h1 {
         display: inline-block;
@@ -97,15 +101,15 @@ export default {
     &.el-menu--collapse :deep() {
       width: 64px;
 
-      .el-submenu.el-menu-main-module {
-        & > .el-submenu__title {
+      .el-sub-menu.el-menu-main-module {
+        & > .el-sub-menu__title {
           padding-left: 20px !important;
         }
       }
     }
 
     &.v-leave-to :deep() {
-      .el-submenu {
+      .el-sub-menu {
         .el-menu {
           opacity: 0;
         }
@@ -113,7 +117,7 @@ export default {
     }
 
     &.v-leave-active :deep() {
-      .el-submenu {
+      .el-sub-menu {
         .el-menu {
           transition: opacity 0.3s;
         }
@@ -145,7 +149,7 @@ export default {
     }
 
     :deep() .el-menu {
-      .el-submenu__title {
+      .el-sub-menu__title {
         color: $--app-dark-theme-text-color;
 
         &:hover,

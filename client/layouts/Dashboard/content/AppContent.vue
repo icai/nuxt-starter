@@ -1,6 +1,8 @@
 <template>
   <div class="app-layout-content">
-    <div class="app-layout-content-grid app-layout-content-header"></div>
+    <div class="app-layout-content-grid app-layout-content-header">
+      <app-tab v-if="preference.useTabView" />
+    </div>
     <div class="app-layout-content-grid app-layout-content-body">
       <app-breadcrumb v-if="preference.useBreadcrumb" />
       <slot />
@@ -12,11 +14,13 @@
 import { mapState } from 'pinia'
 import { useStore } from '~/stores/main'
 import AppBreadcrumb from './AppBreadcrumb'
+import AppTab from './AppTab'
 
 export default {
   name: 'AppContent',
 
   components: {
+    AppTab,
     AppBreadcrumb
   },
   data() {
@@ -31,7 +35,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .app-layout-content {
   .app-layout-content-grid {

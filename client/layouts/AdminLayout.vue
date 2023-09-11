@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="app-layout app-layout-default-theme" :class="layoutClasses">
       <el-container>
-        <el-aside :width="ui.isAsideCollapsed ? '64px' : '208px'" :class="{ 'el-aside-collapsed': ui.isAsideCollapsed }">
+        <el-aside :style="asideStyle" :class="{ 'el-aside-collapsed': ui.isAsideCollapsed }">
           <app-aside />
         </el-aside>
         <el-container class="main-box" :class="{ collapsed: ui.isAsideCollapsed }">
@@ -25,7 +25,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { mapState } from 'pinia'
 import { useStore } from '~/stores/main'
@@ -33,8 +32,6 @@ import AppAside from './Dashboard/aside/AppAside.vue'
 import AppHeader from './Dashboard/header/AppHeader.vue'
 import AppContent from './Dashboard/content/AppContent.vue'
 import AppFooter from './Dashboard/footer/AppFooter.vue'
-
-
 export default {
   name: 'AppLayout',
   components: {
@@ -46,7 +43,7 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: 'g-sidenav-show g-sidenav-pinned'
+        // class: 'g-sidenav-show g-sidenav-pinned'
       }
     }
   },
@@ -64,6 +61,27 @@ export default {
         return state.cachedSessions || []
       }
     }),
+    asideStyle() {
+      if (this.ui.isAsideCollapsed) {
+        return {
+          width: '64px',
+          flex: '0 0 64px',
+          maxWidth: '64px',
+          minWidth: '64px'
+        }
+      } else {
+        return {
+          width: '208px',
+          flex: '0 0 208px',
+          maxWidth: '208px',
+          minWidth: '208px'
+        }
+      }
+    },
+
+    routerViewKey() {
+      return this.$route.path
+    },
 
     layoutClasses() {
       return this.preference.themeLightMode
@@ -74,9 +92,33 @@ export default {
             'app-layout-default-theme-dark': true
           }
     }
+  },
+  mounted() {
+    // this.initAside()
+  },
+  methods: {
+    initAside() {
+      const store = useStore()
+      store.getPermissions()
+    }
   }
 }
 </script>
+<style lang="scss">
+.card .help-block {
+  display: block;
+  clear: both;
+  overflow: hidden;
+  margin: 0;
+  padding: 10px 10px 10px 5px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.8em;
+}
+.card .table .form-group {
+  margin-bottom: 0;
+}
+</style>
 <style lang="scss" scoped>
 .app-layout {
   box-sizing: border-box;
@@ -90,25 +132,21 @@ export default {
     min-height: 100vh;
 
     .el-aside {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      overflow: visible;
-      z-index: 50;
+      flex: 0 0 208px;
+      max-width: 208px;
+      min-width: 208px;
       width: 208px;
-      transition: 0.3s width ease-in-out;
+      transition: all 0.2s;
       box-shadow: 2px 0 8px 0 rgba(0, 0, 0, 0.05);
 
       & .el-aside-collapsed {
-        width: 64px;
       }
     }
     .main-box {
-      transition: 0.3s margin-left ease-in-out;
-      margin-left: 208px;
+      transition: all 0.2s;
+      // margin-left: 208px;
       &.collapsed {
-        margin-left: 64px;
+        // margin-left: 64px;
       }
     }
 

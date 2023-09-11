@@ -1,5 +1,4 @@
 <template>
-  <div>
   <NuxtLayout name="admin-layout">
     <div class="home-content" v-loading="loading">
     <el-row :gutter="20">
@@ -41,12 +40,9 @@
     </el-row>
     </div>
   </NuxtLayout>
-</div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-// import { ElLoading } from 'element-plus'
 import ActionHistoryTable from '@/components/pages/dashboard/ActionHistoryTable.vue'
 import LoginHistoryTable from '@/components/pages/dashboard/LoginHistoryTable.vue'
 useHead({
@@ -64,13 +60,10 @@ const operation_logs = ref([]) // Replace this with your actual data structure
 const loading = ref(false)
 
 const featDsData = async () => {
-
   try {
     loading.value = true;
-    const res = await useFetch('/api/admin/rbac');
-    const data = res.data.value;
+    const data = await getDashBoard();
     if (data) {
-      console.log(data);
       config.value = data.config;
       login_time.value = data.login_time;
       operation_logs.value = data.operation_logs;

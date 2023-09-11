@@ -45,10 +45,9 @@ export const useStore = defineStore('main', {
   },
   actions: {
     async nuxtServerInit(req: any) {
-      // @todo maycase bug
-      // if (/(\w*)?\/admin/.test(req.path)) {
-      //   await this.getPermissions()
-      // }
+      if (/(\w*)?\/admin/.test(req.path)) {
+        await this.getPermissions()
+      }
     },
     SET_LANG(locale: string) {
       this.locale = locale
@@ -79,36 +78,16 @@ export const useStore = defineStore('main', {
     },
     async getPermissions() {
       try {
-        const { menus, perms } = await (new Promise((resolve)=> {
-          resolve({
-            menus: [
-              {
-                id: 1,
-                name: 'Dashboard',
-                icon: 'mdi-view-dashboard',
-                path: '/admin/dashboard',
-                children: []
-              },
-            ],
-            perms: [
-              {
-                id: 1,
-                name: 'Dashboard',
-                slug: 'dashboard',
-                http_method: 'GET',
-                http_path: '/admin/dashboard',
-                created_at: '2021-03-01T09:00:00+08:00',
-                updated_at: '2021-03-01T09:00:00+08:00'
-              }
-            ]
-        })}))
-        this.SET_MENU(menus)
-        this.SET_PERM(perms)
-      } catch (error) {}
+        const data = await getPermissions()
+        if (data) {
+          this.SET_MENU(data.menus)
+          this.SET_PERM(data.perms)
+        }
+      } catch (error) { console.log('getPermissions', error)}
     },
     async login({ email, username, password, isRemember, verify }) {
       try {
-        await this.$auth.loginWith('local', {
+        await useLogin({
           data: {
             email,
             username,
@@ -124,11 +103,22 @@ export const useStore = defineStore('main', {
         throw error
       }
     },
-    async logout({ commit }) {
-      await this.$auth.reset()
-      await this.$auth.logout()
-      this.menus = []
-      this.perms = []
+    redirect(name: string, noRouter = false) {
+      const $router = useRouter()
+      if (name === 'admin') {
+        return $router.push('/admin/dashboard')
+      }
+      if (noRouter) return $router.push(name)
+
+      return $router.push({
+        name
+      })
+    },
+    async logout() {
+      this.getPermissions()
+      // await useLogout()
+      // this.menus = []
+      // this.perms = []
     }
   }
 })

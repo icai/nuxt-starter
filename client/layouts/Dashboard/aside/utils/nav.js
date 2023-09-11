@@ -8,32 +8,26 @@ const NavUtil = {
 
         // 处理当前 Level 的链接
         ;(blockNav.links || []).forEach((link) => {
-          if (
-            validation.hasURIAuth(link.path) ||
-            validation.hasAliasAuth(link.alias)
-          ) {
+          if (validation.hasURIAuth(link.path) || validation.hasAliasAuth(link.alias)) {
             authorizedBlockLinkList.push(link)
           }
         })
 
         // 递归处理下一 Level 的链接
-        const authorizedBlockChildList = NavUtil.getAuthorizedNav(
-          blockNav.children || [],
-          validation
-        )
+        const authorizedBlockChildList = NavUtil.getAuthorizedNav(blockNav.children || [], validation)
 
         if (authorizedBlockChildList.length || authorizedBlockLinkList.length) {
           authorizedNav.push({
             ...blockNav,
             links: authorizedBlockLinkList,
-            children: authorizedBlockChildList,
+            children: authorizedBlockChildList
           })
         }
       }
     }
 
     return authorizedNav
-  },
+  }
 }
 
 export default NavUtil

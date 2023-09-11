@@ -1,7 +1,9 @@
 <template>
-  <el-submenu :data-level="level" :class="subMenuClasses" :index="block.menu_id" :popper-append-to-body="false">
+  <el-sub-menu :data-level="level" :class="subMenuClasses" :index="block.menu_id" :popper-append-to-body="false">
     <template #title>
-      <i v-if="level === 1" :class="{ [block.menu_icon || 'el-icon-location-outline']: true }" /><span>{{ block.menu_name }}</span>
+      <el-icon v-if="level === 1" >
+        <component :is="block.menu_icon.replace('el-icon-', '') || 'el-icon-location-outline'" />
+      </el-icon><span>{{ block.menu_name }}</span>
     </template>
     <template v-if="block.children && !block.children[0].children">
       <el-menu-item v-for="linkItem in block.children" :key="localePath(linkItem.menu_url)" :index="localePath(linkItem.menu_url)">
@@ -13,7 +15,7 @@
     <template v-if="block.children && block.children[0].children && level < maxLevel">
       <sub-menu v-for="next in block.children" :key="next.menu_id" :block="next" :level="level + 1" :max-level="maxLevel" />
     </template>
-  </el-submenu>
+  </el-sub-menu>
 </template>
 
 <script>
@@ -59,8 +61,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-submenu :deep() {
-  .el-submenu__title {
+.el-sub-menu :deep() {
+  .el-sub-menu__title {
     height: 50px;
     line-height: 50px;
   }
@@ -83,8 +85,8 @@ export default {
     }
   }
 }
-.el-submenu.el-menu-main-module :deep() {
-  & > .el-submenu__title {
+.el-sub-menu.el-menu-main-module :deep() {
+  & > .el-sub-menu__title {
     transition: padding-left 0.3s, border-color 0.3s, background-color 0.3s, color 0.3s;
     padding-left: 10px !important;
 
@@ -93,7 +95,7 @@ export default {
     }
   }
 }
-.el-submenu.el-menu-minor-module :deep() {
+.el-sub-menu.el-menu-minor-module :deep() {
   & > .el-menu--vertical {
     top: -1px !important;
   }

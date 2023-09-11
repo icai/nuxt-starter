@@ -20,13 +20,13 @@
 </template>
 
 <script>
+import { useStore } from '~/stores/main'
+const store = useStore()
 export default {
   name: 'AppBreadcrumb',
-
   computed: {
     breadcrumbs() {
-      // let breadcrumbs = this.$store.state.meta
-      let breadcrumbs = ['Dashboard', 'Home']
+      let breadcrumbs = store.meta
       if (breadcrumbs) {
         breadcrumbs = breadcrumbs.map((breadcrumb) => {
           if (typeof breadcrumb === 'string') {

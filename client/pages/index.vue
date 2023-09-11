@@ -370,34 +370,27 @@
               <h4 class="display-4 mb-5 mt-5">Combination with these technologies</h4>
               <client-only>
                 <div class="row justify-content-center">
-                  <div class="col-md-2 col-3 my-2">
-
-                      <el-tooltip placement="top" content="Express.js - Fast, unopinionated, minimalist web framework for Node.js">
-                        <a href="https://expressjs.com/?ref=neoncms-index-page" target="_blank" rel="noopener" aria-label="Express">
-                          <img src="~/assets/images/tech/express.png" class="img-fluid rounded-circle shadow shadow-lg--hover" alt="Express logo" />
-                        </a>
-                      </el-tooltip>
-                  </div>
 
                   <div class="col-md-2 col-3 my-2">
-                    <client-only>
                       <el-tooltip placement="top" content="Nuxt - The Intuitive Vue Framework">
                         <a href="https://nuxt.com/?ref=neoncms-index-page" target="_blank" rel="noopener" aria-label="Nuxt">
                           <img src="~/assets/images/tech/nuxt.png" class="img-fluid rounded-circle shadow shadow-lg--hover" alt="Nuxt logo" />
                         </a>
                       </el-tooltip>
-                    </client-only>
                   </div>
                   <div class="col-md-2 col-3 my-2">
-                    <client-only>
-
                       <el-tooltip placement="top" content="Vue.js - The progressive javascript framework">
                         <a href="https://vuejs.org/?ref=neoncms-index-page" target="_blank" rel="noopener" aria-label="Vue">
                           <img src="~/assets/images/tech/vue.png" class="img-fluid rounded-circle shadow shadow-lg--hover" alt="Vue logo" />
                         </a>
                       </el-tooltip>
-
-                    </client-only>
+                  </div>
+                  <div class="col-md-2 col-3 my-2">
+                      <el-tooltip placement="top" content="Express.js - Fast, unopinionated, minimalist web framework for Node.js">
+                        <a href="https://expressjs.com/?ref=neoncms-index-page" target="_blank" rel="noopener" aria-label="Express">
+                          <img src="~/assets/images/tech/express.png" class="img-fluid rounded-circle shadow shadow-lg--hover" alt="Express logo" />
+                        </a>
+                      </el-tooltip>
                   </div>
                   <div class="col-md-2 col-3 my-2">
                     <el-tooltip placement="top" content="Bootstrap 5 - The world’s most popular front-end open source toolkit">
@@ -424,6 +417,13 @@
                     <el-tooltip placement="top" content="Oauth - The industry-standard protocol for authorization">
                       <a href="https://oauth.net/2/?ref=neoncms-index-page" target="_blank" rel="noopener" aria-label="Oauth">
                         <img src="~/assets/images/tech/oauth.png" class="img-fluid rounded-circle shadow shadow-lg--hover" alt="Oauth logo" />
+                      </a>
+                    </el-tooltip>
+                  </div>
+                  <div class="col-md-2 col-3 my-2">
+                    <el-tooltip placement="top" content="OpenApi - The OpenAPI Specification is a specification language for HTTP APIs. ">
+                      <a href="https://www.openapis.org/?ref=neoncms-index-page" target="_blank" rel="noopener" aria-label="OpenAPI">
+                        <img src="~/assets/images/tech/openapi.png" class="img-fluid rounded-circle shadow shadow-lg--hover" alt="OpenAPI logo" />
                       </a>
                     </el-tooltip>
                   </div>

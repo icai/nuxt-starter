@@ -7,16 +7,19 @@
       <span class="app-layout-content-tab-menu-icon">
         <i class="el-icon-arrow-down" />
       </span>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item command="refresh-current" icon="el-icon-refresh"> 刷新页面 </el-dropdown-item>
-        <el-dropdown-item divided command="close-other" :disabled="sessions.length <= 1" icon="el-icon-close"> 关闭其它 </el-dropdown-item>
-        <el-dropdown-item command="close-all" :disabled="sessions.length <= 1" icon="el-icon-folder-delete"> 全部关闭 </el-dropdown-item>
-      </el-dropdown-menu>
+        <template #dropdown>
+          <el-dropdown-menu >
+          <el-dropdown-item command="refresh-current" icon="el-icon-refresh"> 刷新页面 </el-dropdown-item>
+          <el-dropdown-item divided command="close-other" :disabled="sessions.length <= 1" icon="el-icon-close"> 关闭其它 </el-dropdown-item>
+          <el-dropdown-item command="close-all" :disabled="sessions.length <= 1" icon="el-icon-folder-delete"> 全部关闭 </el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
     </el-dropdown>
   </div>
 </template>
 <script>
 import { mapActions, mapState } from 'pinia'
+import { useStore } from '~/stores/main'
 
 export default {
   name: 'AppTab',
@@ -26,7 +29,7 @@ export default {
     }
   },
   computed: {
-    ...mapState({
+    ...mapState(useStore, {
       sessions(state) {
         return state.sessions || []
       }
@@ -48,8 +51,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['addSession', 'delSession', 'delAllSession', 'delOtherSession', 'delCachedSession']),
-
+    ...mapActions(useStore, ['addSession', 'delSession', 'delAllSession', 'delOtherSession', 'delCachedSession']),
     handleTabMenu(command) {
       switch (command) {
         case 'refresh-current':
