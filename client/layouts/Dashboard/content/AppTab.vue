@@ -140,7 +140,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/variables/index.scss';
 
-.app-layout-content-tab ::v-deep {
+.app-layout-content-tab :deep() {
   position: relative;
   height: $--app-tab-height;
   line-height: $--app-tab-height;

@@ -16,7 +16,8 @@ export default defineNuxtConfig({
       titleTemplate: '%s - NeonCMS',
       meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: 'NeonCMS' }],
       link: [
-        { rel: 'icon', type: 'image/png', href: 'favicon.png' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        // { rel: 'icon', type: 'image/png', href: 'favicon.png' },
         // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' },
         // { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' },
         { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' },
@@ -77,11 +78,11 @@ export default defineNuxtConfig({
       },
     },
   },
-  elementPlus: {
-    icon: 'ElIcon',
-    importStyle: 'scss',
-    themes: ['dark'],
-  },
+  // elementPlus: {
+  //   icon: 'ElIcon',
+  //   importStyle: 'scss',
+  //   themes: ['dark'],
+  // },
   serverHandlers: [
     { route: '/api/**', handler: './server/serverhandler.ts' }
   ],

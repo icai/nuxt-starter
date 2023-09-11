@@ -1,13 +1,13 @@
 {
   "name": "neoncms",
-  "packageManager": "pnpm@8.6.2",
+  "packageManager": "yarn@1.16.1",
   "version": "0.1.0",
   "description": "Element Plus with Nuxt 3 Minimal Starter",
   "repository": {
     "type": "git",
     "url": "git://github.com/icai/nuxt-starter"
   },
-  "author": "Element Plus Team",
+  "author": "Terry Cai",
   "license": "MIT",
   "private": true,
   "scripts": {
