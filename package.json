@@ -7,7 +7,6 @@
     "type": "git",
     "url": "git://github.com/icai/nuxt-starter"
   },
-  "type": "module",
   "author": "Element Plus Team",
   "license": "MIT",
   "private": true,
