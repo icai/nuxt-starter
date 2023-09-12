@@ -7,7 +7,6 @@ export default defineNuxtConfig({
   serverDir: "server",
   components: {
     dirs: [
-      '~/components/aui',
       '~/components/global'
     ]
   },
