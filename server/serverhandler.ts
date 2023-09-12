@@ -106,6 +106,6 @@ app.get('/api/some', (req, res) => {
 })
 
 export default fromNodeMiddleware((req, res, next) => {
-    console.log(req.url, req.method, Date.now())
+    // console.log(req.url, req.method, Date.now())
     app.handle(req, res, next)
 })
