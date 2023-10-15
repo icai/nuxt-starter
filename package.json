@@ -23,6 +23,8 @@
     "@element-plus/icons-vue": "^2.1.0",
     "element-plus": "^2.3.12",
     "express": "^4.18.2",
+    "swagger-ui-express": "^5.0.0",
+    "tsoa": "^5.1.1",
     "vue-i18n": "9.4.0"
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
     "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge",
     "@pinia/nuxt": "^0.4.11",
     "@types/express": "^4.17.17",
+    "@types/swagger-ui-express": "^4.1.4",
     "@vueuse/nuxt": "^10.2.0",
     "consola": "^3.1.0",
     "nuxt": "^3.7.1",

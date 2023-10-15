@@ -3,8 +3,9 @@ import { fromNodeMiddleware } from 'h3'
 
 import dashboard from './mock/dashboard.json'
 import permission from './mock/permission.json'
+import { app } from './app'
 
-const app = express()
+// const app = express()
 // show hello world
 
 app.get('/api/admin/dashboard/dashboard', (req, res) => {

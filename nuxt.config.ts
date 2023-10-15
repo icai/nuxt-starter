@@ -10,6 +10,18 @@ export default defineNuxtConfig({
       '~/components/global'
     ]
   },
+  nitro: {
+    // autoImport: false,
+    esbuild: {
+      options: {
+        tsconfigRaw: {
+          compilerOptions: {
+            experimentalDecorators: true
+          }
+        }
+      }
+    }
+  },
   app: {
     head: {
       titleTemplate: '%s - NeonCMS',
@@ -72,7 +84,13 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "~/assets/scss/variable.scss";`
+          // https://github.com/nuxt/nuxt/issues/13824
+          additionalData: (content, filename) => {
+            if (filename.includes('client/pages')) {
+              return `@import "~/assets/scss/variable.scss";\n${content}`;
+            }
+            return content;
+          }
         },
       },
     },
